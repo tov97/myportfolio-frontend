@@ -28,16 +28,10 @@ const GlobalStyle = createGlobalStyle`
 
 /* body global styles */
 body {
-  // CSS reset: margin
-  margin: 0;
-
-  // centered background image
- background: rgb(247,237,206);
-background: radial-gradient(circle, rgba(247,237,206,0.7581233176864496) 0%, rgba(207,163,52,1) 100%);
- /* background: url(${canvas}) no-repeat center center fixed; */
+  background: rgb(169,185,210);
+  background: radial-gradient(circle, rgba(169,185,210,1) 0%, rgba(231,231,231,1) 100%);
   background-size: 100% 100%;
   background-color: #000;
-
   // persistent scrollbar to prevent resizing glitches
   overflow-y: scroll;
 

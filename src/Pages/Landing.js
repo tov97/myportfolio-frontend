@@ -30,69 +30,82 @@ export default function Landing() {
 }
 
 const Wrapper = styled.div`
-  margin: 0 auto;
-  display: grid;
+  display: flex;
+  flex-direction: row;
   height: 100%;
-  grid-template-columns: 0.75fr 1fr;
-  grid-template-rows: 2fr;
-  grid-template-areas: "portrait greeting";
-  justify-items: center;
+  width: 100%;
   @media (max-width: 840px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 375px 400px;
-    justify-items: center;
-    grid-template-areas:
-      "portrait"
-      "greeting";
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
 const PortraitContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  grid-area: "portrait";
+  height: 90%;
+  position: absolute;
+  top: 85px;
+  left: 5%;
+  max-width: 50%;
+  border-radius: 8px;
+  @media (max-width: 1080px) {
+    height: 80%;
+    max-width: 40%;
+    left: 3%;
+  }
+  @media (max-width: 840px) {
+    height: 55%;
+    width: 96%;
+    max-width: 96%;
+    position: absolute;
+    top: 60px;
+    left: 2%;
+    right: 2%;
+  }
 `;
 
 const Portrait = styled.img`
-  margin: 3% 3% 3% 3%;
-  height: 80%;
+  height: 100%;
   max-height: 50em;
   position: absolute;
   @media (max-width: 840px) {
-    margin-top: 3%;
-    margin-left: 8%;
-    margin-right: 8%;
-    max-height: 375px;
-    width: 92%;
-    max-width: 350px;
+    width: 100%;
+    max-width: 500px;
   }
 `;
 
 const GreetingContainer = styled.main`
-  grid-area: "greeting";
   display: flex;
   box-sizing: border-box;
-  border: 1px solid black;
   flex-direction: column;
   align-items: center;
-  background: white;
-  height: auto;
+  background: transparent;
+  height: 25%;
   max-height: 500px;
-  margin-top: 25%;
-  margin-right: 10%;
-  margin-left: 5%;
-  margin-bottom: 25%;
+  width: 40%;
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  @media (max-width: 1080px) {
+    top: 15%;
+    right: 5%;
+  }
   @media (max-width: 840px) {
-    margin-left: 5%;
-    margin-right: 5%;
+    position: absolute;
+    width: 96%;
+    top: auto;
+    right: 2%;
+    left: 2%;
+    bottom: 10%;
   }
 `;
 const Text = styled.p`
   font-family: "Norsebold";
   font-size: 48px;
   text-align: center;
-  text-shadow: -1px -1px 2px white;
-  @media (max-width: 840px) {
+  // text-shadow: -1px -1px 2px white;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  @media (max-width: 535px) {
     text-align: center;
     font-size: 28px;
     margin-left: 5%;
@@ -101,20 +114,29 @@ const Text = styled.p`
 `;
 
 const StyledButton = styled.button`
-  box-shadow: inset 0px 1px 0px 0px #a6827e;
-  background-color: #7d5d3b;
-  border: 1px solid #ffffff;
   display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: "Norsebold";
-  font-size: 24px;
-  padding: 6px 24px;
+  padding: 0.46em 1.6em;
+  border: 0.1em solid #000000;
+  margin: 0 0.2em 0.2em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #4d3534;
-  min-width: 230px;
-  width: 30%;
-  @media (max-width: 840px) {
+  font-family: "Norsebold";
+  font-size: 22px;
+  font-weight: 300;
+  color: #000000;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.15s;
+  cursor: pointer;
+  &:hover {
+    background-color: goldenrod;
+    text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+  @media (max-width: 535px) {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
