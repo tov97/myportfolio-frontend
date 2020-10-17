@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import vikingportrait from "../Assets/viking-portrait.png";
 import { useHistory } from "react-router-dom";
 
@@ -99,12 +99,22 @@ const GreetingContainer = styled.main`
     bottom: 10%;
   }
 `;
+const TextSlideIn = keyframes`
+  0% {
+        transform: translateX(100%);
+      }
+        100% {
+        transform: translateX(0);
+      }
+`;
 const Text = styled.p`
   font-family: "Norsebold";
   font-size: 48px;
   text-align: center;
   // text-shadow: -1px -1px 2px white;
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  animation-name: ${TextSlideIn};
+  animation-duration: 0.5s;
   @media (max-width: 535px) {
     text-align: center;
     font-size: 28px;
