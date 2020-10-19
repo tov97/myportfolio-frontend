@@ -2,7 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import vikingportrait from "../Assets/viking-portrait.png";
 import { useHistory } from "react-router-dom";
-
+import githubicon from "../Assets/githubicon.svg";
+import linkedin from "../Assets/linkedin.png";
 /* TO-DO
 1. Set up API to get portrait image.
 2. Animation the placement of portrait and info.
@@ -24,6 +25,20 @@ export default function Landing() {
         <StyledButton onClick={() => history.push("/portfolio")}>
           Check out my work ->
         </StyledButton>
+        <IconContainer>
+          <IconLink
+            src={linkedin}
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/trevor-tovsen-618729139/"
+              )
+            }
+          />
+          <IconLink
+            src={githubicon}
+            onClick={() => window.open("https://github.com/tov97")}
+          />
+        </IconContainer>
       </GreetingContainer>
     </Wrapper>
   );
@@ -84,7 +99,7 @@ const GreetingContainer = styled.main`
   max-height: 500px;
   width: 40%;
   position: absolute;
-  top: 40%;
+  top: 30%;
   right: 10%;
   @media (max-width: 1080px) {
     top: 15%;
@@ -150,5 +165,32 @@ const StyledButton = styled.button`
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+  }
+`;
+const IconHoverAnimation = keyframes`
+0% {
+        transform: translateY(0);
+      }
+      50%{
+          transform: translateY(-15%);
+      }
+        100% {
+        transform: translateY(0);
+      }
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+`;
+const IconLink = styled.img`
+  width: 70px;
+  height: 70px;
+  padding: 20px 20px 20px 20px;
+  &:hover {
+    cursor: pointer;
+    animation-name: ${IconHoverAnimation};
+    animation-duration: 0.3s;
   }
 `;

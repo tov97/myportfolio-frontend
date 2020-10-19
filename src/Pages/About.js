@@ -18,13 +18,13 @@ export default function About() {
     {
       title: "Front End Development",
       desc:
-        "Proficiency building responsive, dynamic web apps with React JS (w/ Redux, styled-components, React boostrap, and many other libraries). Excellent understanding of HTML, CSS, and Javascript.",
+        "Proficiency building responsive, dynamic web apps with React JS (w/ Redux, styled-components, React bootstrap, and many other libraries). Excellent understanding of HTML, CSS, and Javascript.",
       image: frontend,
     },
     {
       title: "UI/UX Design",
       desc:
-        "Custom website design and prototyping using software such as Adobe XD and inVision App",
+        "Custom website design and prototyping using software such as Adobe XD and inVision App.",
       image: design,
     },
     {
@@ -69,7 +69,7 @@ const Header = styled.p`
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3em;
+  grid-gap: 2em;
   margin: 0% 0% 3% 3%;
   @media (max-width: 1080px) {
     grid-template-columns: repeat(2, 1fr);
