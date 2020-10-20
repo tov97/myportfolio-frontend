@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useHttpContact } from "../Components/hooks/contact-hook";
 const Contact = () => {
+  const { sendRequest } = useHttpContact();
   return (
     <Container>
       <Header>Contact</Header>
@@ -19,11 +21,24 @@ const Contact = () => {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
+          try {
+            const responseData = await sendRequest(
+              "http://localhost:5000/send",
+              "POST",
+              JSON.stringify({
+                name: values.name,
+                email: values.email,
+                message: values.message,
+              }),
+              { "Content-Type": "application/json" }
+            );
+            console.log(responseData);
+          } catch (err) {}
         }}
       >
         {({ isSubmitting }) => (
@@ -34,8 +49,8 @@ const Contact = () => {
               <StyledField type="email" name="email" placeholder="Email" />
               <ErrorMessage name="email" component="div" />
               <StyledField
-                as="textarea"
-                type="textarea"
+                component="textarea"
+                type="text"
                 name="message"
                 placeholder="Your message"
               />
