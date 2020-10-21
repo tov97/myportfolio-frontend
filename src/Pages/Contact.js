@@ -28,7 +28,7 @@ const Contact = () => {
           }, 400);
           try {
             const responseData = await sendRequest(
-              "http://localhost:5000/send",
+              "http://localhost:5000/contact/send",
               "POST",
               JSON.stringify({
                 name: values.name,

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { PortfolioTile } from "../Components/layout/index";
+import { useHttpContact } from "../Components/hooks/contact-hook";
+import WorkView from "../Components/modals/work-view";
 import win from "../Assets/winscreenshot.png";
 
 /* TO-DO
@@ -12,13 +14,42 @@ import win from "../Assets/winscreenshot.png";
 */
 
 export default function Portfolio() {
+  const [workViewModal, showWorkViewModal] = useState(false);
+  const [loadedWorks, setLoadedWorks] = useState();
+  const { sendRequest } = useHttpContact();
+
+  useEffect(() => {
+    const fetchWorks = async () => {
+      try {
+        const responsedata = await sendRequest(
+          "http://localhost:5000/api/portfolio"
+        );
+        setLoadedWorks(responsedata.works);
+        console.log(loadedWorks);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchWorks();
+  }, [sendRequest, loadedWorks]);
+
   return (
     <Container>
       <Header> My Works </Header>
       <Wrapper>
-        <PortfolioTile imgsrc={win} tiletitle="Western Intelligence Network" />
-        <PortfolioTile imgsrc={win} tiletitle="Other Work" />
+        {loadedWorks &&
+          loadedWorks.map((work) => {
+            return (
+              <PortfolioTile
+                imgsrc={win}
+                tiletitle={work.title}
+                workViewModal={workViewModal}
+                showWorkViewModal={showWorkViewModal}
+              />
+            );
+          })}
       </Wrapper>
+      <WorkView show={workViewModal} handleClose={showWorkViewModal} />
     </Container>
   );
 }

@@ -4,7 +4,9 @@ export default function PortfolioTile(props) {
   return (
     <Wrapper>
       <TileText>{props.tiletitle}</TileText>
-      <TileButton>See more</TileButton>
+      <TileButton onClick={() => props.showWorkViewModal(!props.workViewModal)}>
+        See more
+      </TileButton>
       <TileImage src={props.imgsrc} />
     </Wrapper>
   );

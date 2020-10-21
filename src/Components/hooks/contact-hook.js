@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 export const useHttpContact = () => {
   const sendRequest = useCallback(
-    async (url, method = "POST", body = null, headers = {}) => {
+    async (url, method = "GET", body = null, headers = {}) => {
       try {
         const response = await fetch(url, {
           method,
