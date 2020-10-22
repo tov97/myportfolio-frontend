@@ -38,6 +38,7 @@ const Title = styled.p`
   margin-left: 25px;
 `;
 const Text = styled.p`
+  font-family: Georgia, serif;
   margin-bottom: 10%;
 `;
 

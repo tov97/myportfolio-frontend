@@ -81,6 +81,7 @@ const Header = styled.p`
 `;
 const PromptText = styled.p`
   font-size: 28px;
+  font-family: Georgia, serif;
   text-align: center;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -102,7 +103,7 @@ const FormCard = styled.div`
 const StyledField = styled(Field)`
   min-width: 450px;
   width: 100%;
-  font: inherit;
+  font-family: Georgia, serif;
   border: 1px solid #ccc;
   background: #f8f8f8;
   padding: 0.15rem 0.25rem;

@@ -4,6 +4,9 @@ import { PortfolioTile } from "../Components/layout/index";
 import { useHttpContact } from "../Components/hooks/contact-hook";
 import WorkView from "../Components/modals/work-view";
 import win from "../Assets/winscreenshot.png";
+import win2 from "../Assets/winmvp1.png";
+import win3 from "../Assets/winmvp2.png";
+import homestead from "../Assets/homestead.jpg";
 
 /* TO-DO
 1. Set up API to get works image and info.
@@ -40,6 +43,7 @@ export default function Portfolio() {
     fetchWorks();
   }, [sendRequest]);
 
+  const images = [win, win2, win3];
   return (
     <Container>
       <Header> Works </Header>
@@ -61,6 +65,7 @@ export default function Portfolio() {
           show={workViewModal}
           handleClose={showWorkViewModal}
           workData={activeView}
+          images={images}
         />
       )}
     </Container>
