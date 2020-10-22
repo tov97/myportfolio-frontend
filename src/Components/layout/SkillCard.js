@@ -37,6 +37,8 @@ const Title = styled.p`
   font-size: 36px;
   margin-left: 25px;
 `;
-const Text = styled.p``;
+const Text = styled.p`
+  margin-bottom: 10%;
+`;
 
 export default SkillCard;

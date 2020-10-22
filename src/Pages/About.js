@@ -42,7 +42,7 @@ export default function About() {
   ];
   return (
     <Container>
-      <Header>My Skills</Header>
+      <Header>Skills</Header>
       <CardContainer>
         {skills.map((skill) => (
           <SkillCard
@@ -64,6 +64,7 @@ const Container = styled.div`
 const Header = styled.p`
   font-family: "Norsebold";
   font-size: 48px;
+  margin-top: 3%;
 `;
 
 const CardContainer = styled.div`

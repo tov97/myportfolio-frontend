@@ -16,7 +16,15 @@ import win from "../Assets/winscreenshot.png";
 export default function Portfolio() {
   const [workViewModal, showWorkViewModal] = useState(false);
   const [loadedWorks, setLoadedWorks] = useState();
+  const [activeView, setActiveView] = useState();
   const { sendRequest } = useHttpContact();
+  const WorkViewHandler = (props) => {
+    const clickedWork = loadedWorks.find((w) => {
+      return w.id === props.id;
+    });
+    setActiveView(clickedWork);
+    showWorkViewModal(true);
+  };
 
   useEffect(() => {
     const fetchWorks = async () => {
@@ -25,31 +33,36 @@ export default function Portfolio() {
           "http://localhost:5000/api/portfolio"
         );
         setLoadedWorks(responsedata.works);
-        console.log(loadedWorks);
       } catch (err) {
         console.log(err);
       }
     };
     fetchWorks();
-  }, [sendRequest, loadedWorks]);
+  }, [sendRequest]);
 
   return (
     <Container>
-      <Header> My Works </Header>
+      <Header> Works </Header>
       <Wrapper>
         {loadedWorks &&
           loadedWorks.map((work) => {
             return (
               <PortfolioTile
+                key={work.id}
                 imgsrc={win}
-                tiletitle={work.title}
-                workViewModal={workViewModal}
-                showWorkViewModal={showWorkViewModal}
+                workData={work}
+                showWork={WorkViewHandler}
               />
             );
           })}
       </Wrapper>
-      <WorkView show={workViewModal} handleClose={showWorkViewModal} />
+      {activeView && (
+        <WorkView
+          show={workViewModal}
+          handleClose={showWorkViewModal}
+          workData={activeView}
+        />
+      )}
     </Container>
   );
 }
@@ -57,7 +70,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5% 5% 5% 5%;
+  margin: 3% 5% 5% 5%;
 `;
 
 const Header = styled.header`

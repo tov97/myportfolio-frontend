@@ -14,7 +14,7 @@ import { BlogPost } from "../Components/layout/index";
 export default function Blog() {
   return (
     <Wrapper>
-      <Header>My Blog Posts</Header>
+      <Header>Blog Posts</Header>
       <Container>
         <BlogPost />
         <BlogPost />
@@ -44,6 +44,6 @@ const Container = styled.div`
 const Header = styled.header`
   font-size: 48px;
   font-family: "Norsebold";
-  margin-top: 5%;
+  margin-top: 3%;
   margin-bottom: 3%;
 `;

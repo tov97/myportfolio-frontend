@@ -3,8 +3,8 @@ import styled, { keyframes } from "styled-components";
 export default function PortfolioTile(props) {
   return (
     <Wrapper>
-      <TileText>{props.tiletitle}</TileText>
-      <TileButton onClick={() => props.showWorkViewModal(!props.workViewModal)}>
+      <TileText>{props.workData.title}</TileText>
+      <TileButton onClick={() => props.showWork(props.workData)}>
         See more
       </TileButton>
       <TileImage src={props.imgsrc} />

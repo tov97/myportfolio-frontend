@@ -185,8 +185,8 @@ const IconContainer = styled.div`
   margin-top: 10%;
 `;
 const IconLink = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 6em;
+  height: 6em;
   padding: 20px 20px 20px 20px;
   &:hover {
     cursor: pointer;

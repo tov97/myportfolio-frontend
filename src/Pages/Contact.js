@@ -74,10 +74,10 @@ const Container = styled.div`
 `;
 
 const Header = styled.p`
-  margin-top: 5%;
+  margin-top: 3%;
   margin-bottom: 0;
   font-family: "Norsebold";
-  font-size: 54px;
+  font-size: 48px;
 `;
 const PromptText = styled.p`
   font-size: 28px;
