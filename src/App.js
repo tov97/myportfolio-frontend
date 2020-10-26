@@ -5,16 +5,15 @@ import { createGlobalStyle } from "styled-components";
 import theme from "./Constants/theme";
 import norseFont from "./Assets/Norse.otf";
 import norseFontBold from "./Assets/Norsebold.otf";
-import canvas from "./Assets/canvas.jpg";
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Navigator />
       <GlobalStyle />
     </ThemeProvider>
   );
-}
+};
 const GlobalStyle = createGlobalStyle`
 /* Norse fonts */ 
 @font-face {

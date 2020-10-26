@@ -1,17 +1,18 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-export default function PortfolioTile(props) {
+const PortfolioTile = ({ workData, showWork }) => {
   return (
     <Wrapper>
-      <TileText>{props.workData.title}</TileText>
-      <TileButton onClick={() => props.showWork(props.workData)}>
-        See more
-      </TileButton>
-      <TileImage src={props.imgsrc} />
+      <TileText>{workData.title}</TileText>
+      <TileButton onClick={() => showWork(workData)}>See more</TileButton>
+      <TileImage
+        src={process.env.REACT_APP_BACKEND_URL + "/" + workData.images[0]}
+      />
     </Wrapper>
   );
-}
-//add onClick to button to specific portfolio page. Will need routing aswell.
+};
+
+export default PortfolioTile;
 
 //For adding hover effects, etc...
 // https://styled-components.com/docs/advanced#referring-to-other-components
@@ -87,6 +88,9 @@ const TileText = styled.p`
     transition: all 1s ease-in;
     animation-name: ${TextAnimation};
     animation-duration: 0.3s;
+  }
+  @media (max-width: 640px) {
+    font-size: 28px;
   }
 `;
 const ButtonAnimation = keyframes`

@@ -7,7 +7,7 @@ import {
 import styled from "styled-components";
 import testlogo from "../../Assets/testlogo.png";
 
-export default function Navbar() {
+const Navbar = () => {
   const history = useHistory();
   const aboutMatch = useMatch("/about");
   const contactMatch = useMatch("/contact");
@@ -61,7 +61,9 @@ export default function Navbar() {
       </MenuButton>
     </NavContainer>
   );
-}
+};
+
+export default Navbar;
 
 const NavContainer = styled.nav`
   position: fixed;

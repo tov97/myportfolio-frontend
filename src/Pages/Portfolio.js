@@ -3,15 +3,8 @@ import styled from "styled-components";
 import { PortfolioTile } from "../Components/layout/index";
 import { useHttpContact } from "../Components/hooks/contact-hook";
 import WorkView from "../Components/modals/work-view";
-import win from "../Assets/winscreenshot.png";
-import win2 from "../Assets/winmvp1.png";
-import win3 from "../Assets/winmvp2.png";
-import homestead from "../Assets/homestead.jpg";
 
 /* TO-DO
-1. Set up API to get works image and info.
-2.  See More about Work Page
-    or
     Implement work view on portfolio page using grid animation
         https://codepen.io/aholachek/pen/VXjOPB
 */
@@ -21,6 +14,8 @@ const Portfolio = () => {
   const [loadedWorks, setLoadedWorks] = useState();
   const [activeView, setActiveView] = useState();
   const { sendRequest } = useHttpContact();
+
+  //sets the specific work data for the view modal.
   const WorkViewHandler = (props) => {
     const clickedWork = loadedWorks.find((w) => {
       return w.id === props.id;
@@ -29,11 +24,12 @@ const Portfolio = () => {
     showWorkViewModal(true);
   };
 
+  //fetchs portoflio data from the api
   useEffect(() => {
     const fetchWorks = async () => {
       try {
         const responsedata = await sendRequest(
-          "http://localhost:5000/api/portfolio"
+          process.env.REACT_APP_BACKEND_URL + "/api/portfolio"
         );
         setLoadedWorks(responsedata.works);
       } catch (err) {
@@ -43,7 +39,6 @@ const Portfolio = () => {
     fetchWorks();
   }, [sendRequest]);
 
-  const images = [win, win2, win3];
   return (
     <Container>
       <Header> Works </Header>
@@ -53,7 +48,6 @@ const Portfolio = () => {
             return (
               <PortfolioTile
                 key={work.id}
-                imgsrc={win}
                 workData={work}
                 showWork={WorkViewHandler}
               />
@@ -91,4 +85,8 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(2, 3fr);
   overflow: hidden;
   grid-gap: 10px;
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(1, 1fr);
+    overflow: scroll;
+  }
 `;

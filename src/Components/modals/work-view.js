@@ -22,7 +22,7 @@ const WorkView = ({ show, handleClose, workData }) => {
             return (
               <Carousel.Item>
                 <CarouselImage
-                  src={"http://localhost:5000/" + img}
+                  src={`${process.env.REACT_APP_BACKEND_URL}/${img}`}
                   alt="Image"
                 />
               </Carousel.Item>
@@ -52,9 +52,15 @@ const StyledModal = styled(Modal)`
 const StyledHeader = styled(Modal.Header)`
   height: 100px;
   width: 100%;
+  @media (max-width: 640px) {
+    height: 125px;
+  }
 `;
 const StyledTitle = styled(Modal.Title)`
   font-family: "Norsebold";
+  @media (max-width: 640px) {
+    font-size: 24px;
+  }
 `;
 
 const StyledSubHeader = styled.p`

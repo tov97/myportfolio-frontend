@@ -4,7 +4,7 @@ import styled from "styled-components";
 import React from "react";
 import { Navbar } from "../Components/layout";
 import { About, Blog, Contact, Landing, Portfolio } from "../Pages";
-function Navigator() {
+const Navigator = () => {
   return (
     <Router>
       <Wrapper>
@@ -39,7 +39,7 @@ function Navigator() {
       </Wrapper>
     </Router>
   );
-}
+};
 
 const Wrapper = styled.div`
   margin: 0 auto;

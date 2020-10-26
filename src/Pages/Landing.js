@@ -9,7 +9,7 @@ import linkedin from "../Assets/linkedin.png";
 2. Animation the placement of portrait and info.
 */
 
-export default function Landing() {
+const Landing = () => {
   const history = useHistory();
   return (
     <Wrapper>
@@ -42,8 +42,8 @@ export default function Landing() {
       </GreetingContainer>
     </Wrapper>
   );
-}
-
+};
+export default Landing;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
