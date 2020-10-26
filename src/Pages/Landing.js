@@ -23,7 +23,7 @@ export default function Landing() {
           <br /> I'm a web developer based out of rural Minnesota.
         </Text>
         <StyledButton onClick={() => history.push("/portfolio")}>
-          Check out my work ->
+          Check out my work
         </StyledButton>
         <IconContainer>
           <IconLink
@@ -159,7 +159,7 @@ const StyledButton = styled.button`
     background-color: goldenrod;
     text-shadow: 0 0 2em rgba(255, 255, 255, 1);
     color: #ffffff;
-    border-color: #ffffff;
+    border-color: goldenrod;
   }
   @media (max-width: 535px) {
     width: 80%;

@@ -16,7 +16,7 @@ import homestead from "../Assets/homestead.jpg";
         https://codepen.io/aholachek/pen/VXjOPB
 */
 
-export default function Portfolio() {
+const Portfolio = () => {
   const [workViewModal, showWorkViewModal] = useState(false);
   const [loadedWorks, setLoadedWorks] = useState();
   const [activeView, setActiveView] = useState();
@@ -65,12 +65,14 @@ export default function Portfolio() {
           show={workViewModal}
           handleClose={showWorkViewModal}
           workData={activeView}
-          images={images}
         />
       )}
     </Container>
   );
-}
+};
+
+export default Portfolio;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
