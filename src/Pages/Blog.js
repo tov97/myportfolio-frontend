@@ -16,10 +16,8 @@ export default function Blog() {
     <Wrapper>
       <Header>Blog Posts</Header>
       <Container>
-        <BlogPost />
-        <BlogPost />
-        <BlogPost />
-        <BlogPost />
+        <NoPost></NoPost>
+        <NoPost>No blog posts are available at the moment...</NoPost>
       </Container>
     </Wrapper>
   );
@@ -46,4 +44,8 @@ const Header = styled.header`
   font-family: "Norsebold";
   margin-top: 3%;
   margin-bottom: 3%;
+`;
+
+const NoPost = styled.p`
+  font-family: Georgia, serif;
 `;

@@ -82,11 +82,13 @@ const Header = styled.header`
 const Wrapper = styled.div`
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(3, 3fr);
   overflow: hidden;
   grid-gap: 10px;
+  @media (max-width: 1080px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (max-width: 640px) {
     grid-template-columns: repeat(1, 1fr);
-    overflow: scroll;
   }
 `;

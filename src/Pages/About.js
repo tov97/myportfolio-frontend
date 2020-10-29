@@ -9,31 +9,35 @@ import SkillCard from "../Components/layout/SkillCard";
 export default function About() {
   const skills = [
     {
+      id: "s1",
       title: "Education",
       desc:
         "I double majored at the University of Minnesota Duluth recieving a B.B.A in Management Information Systems and a B.A in Philosophy.",
       image: graduation,
     },
-
     {
+      id: "s2",
       title: "Front End Development",
       desc:
         "Proficiency building responsive, dynamic web apps with React JS (w/ Redux, styled-components, React bootstrap, and many other libraries). Excellent understanding of HTML, CSS, and Javascript.",
       image: frontend,
     },
     {
+      id: "s3",
       title: "UI/UX Design",
       desc:
         "Custom website design and prototyping using software such as Adobe XD and inVision App.",
       image: design,
     },
     {
+      id: "s4",
       title: "Marketing and Promotion",
       desc:
         "Tested interpersonal skills and experience organizing and promoting products at conferences and trade shows as well as presenting product demonstrations to an audience.",
       image: promotion,
     },
     {
+      id: "s5",
       title: "Other Coding Skills and Certifications",
       desc:
         "Completion of the full React JS (60+ hours) and MERN stack courses on Udemy. Also, completion of high level college courses in SQL, Java, R, and practice with the SDLC process.",
@@ -46,6 +50,7 @@ export default function About() {
       <CardContainer>
         {skills.map((skill) => (
           <SkillCard
+            key={skill.id}
             image={skill.image}
             title={skill.title}
             desc={skill.desc}

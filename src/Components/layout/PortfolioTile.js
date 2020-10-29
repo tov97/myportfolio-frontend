@@ -40,6 +40,7 @@ const WrapperSlideIn = keyframes`
 `;
 const Wrapper = styled.div`
   display: flex;
+  min-height: 300px;
   height: 100%;
   width: 100%;
   box-sizing: border-box;

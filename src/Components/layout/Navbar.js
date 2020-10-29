@@ -133,6 +133,7 @@ const StyledNavLink = styled(NavLink)`
   margin-top: 1%;
   &:hover {
     color: goldenrod;
+    text-decoration: none;
   }
 `;
 // mobile menu button
