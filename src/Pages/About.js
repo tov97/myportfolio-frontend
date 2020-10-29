@@ -6,7 +6,7 @@ import graduation from "../Assets/graduation.png";
 import design from "../Assets/design.png";
 import promotion from "../Assets/promotion.png";
 import SkillCard from "../Components/layout/SkillCard";
-export default function About() {
+const About = () => {
   const skills = [
     {
       id: "s1",
@@ -59,7 +59,9 @@ export default function About() {
       </CardContainer>
     </Container>
   );
-}
+};
+
+export default About;
 
 const Container = styled.div`
   display: flex;
