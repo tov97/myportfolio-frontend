@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useHttpContact } from "../Components/hooks/contact-hook";
+import StyledButton from "../Components/ui/StyledButton";
 const Contact = () => {
   const { sendRequest } = useHttpContact();
   return (
@@ -21,14 +22,10 @@ const Contact = () => {
           }
           return errors;
         }}
-        onSubmit={async (values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={async (values, { setSubmitting, resetForm, setStatus }) => {
           try {
             const responseData = await sendRequest(
-              "http://localhost:5000/contact/send",
+              process.env.REACT_APP_BACKEND_URL + "/contact/send",
               "POST",
               JSON.stringify({
                 name: values.name,
@@ -37,27 +34,33 @@ const Contact = () => {
               }),
               { "Content-Type": "application/json" }
             );
-            console.log(responseData);
-          } catch (err) {}
+            setSubmitting(false);
+            setStatus({ success: true });
+            alert("Message sent!");
+            resetForm();
+          } catch (err) {
+            setStatus({ success: false });
+            alert("Message failed. Please try again!");
+          }
         }}
       >
         {({ isSubmitting }) => (
           <Form>
             <FormCard>
-              <StyledField type="text" name="name" placeholder="Name" />
               <ErrorMessage name="name" component="div" />
-              <StyledField type="email" name="email" placeholder="Email" />
+              <StyledField type="text" name="name" placeholder="Name" />
               <ErrorMessage name="email" component="div" />
+              <StyledField type="email" name="email" placeholder="Email" />
+              <ErrorMessage name="message" component="div" />
               <StyledField
                 component="textarea"
                 type="text"
                 name="message"
                 placeholder="Your message"
               />
-              <ErrorMessage name="message" component="div" />
-              <Button type="submit" disabled={isSubmitting}>
+              <StyledButton type="submit" disabled={isSubmitting}>
                 Submit
-              </Button>
+              </StyledButton>
             </FormCard>
           </Form>
         )}
@@ -115,23 +118,4 @@ const StyledField = styled(Field)`
   }
 `;
 
-const Button = styled.button`
-  font-family: "Norsebold";
-  font-size: 26px;
-  padding: 0.5rem 1.5rem;
-  border: 0.05em solid #000000;
-  border-radius: 0.12em;
-  background: transparent;
-  color: #000000;
-  cursor: pointer;
-  width: 75%;
-  text-decoration: none;
-  display: inline-block;
-  &:hover {
-    background-color: goldenrod;
-    text-shadow: 0 0 2em rgba(255, 255, 255, 1);
-    color: #ffffff;
-    border-color: #ffffff;
-  }
-`;
 export default Contact;

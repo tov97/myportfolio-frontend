@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import StyledButton from "../ui/StyledButton";
 const PortfolioTile = ({ workData, showWork }) => {
   return (
     <Wrapper>
@@ -105,29 +106,24 @@ const ButtonAnimation = keyframes`
         transform: translateY(0);
       }
 `;
-const TileButton = styled.button`
+const TileButton = styled(StyledButton)`
   margin-top: 10%;
   position: absolute;
-  cursor: pointer;
-  border: 1px solid silver;
-  box-shadow: inset 0px 0px 1px 0px silver;
-  background-color: transparent;
   font-family: "Norse";
   font-size: 24px;
-  text-align: center;
   color: white;
+  border-color: white;
   display: none;
   z-index: 5;
   padding-left: 5%;
   padding-right: 5%;
   &:hover {
-    transition: all 0.2s ease-in;
-    color: goldenrod;
+    transition: all 0.15s ease-in;
+    color: white;
     border: 1px solid goldenrod;
   }
   ${Wrapper}:hover & {
     display: inherit;
-
     animation-name: ${ButtonAnimation};
     animation-duration: 0.3s;
   }

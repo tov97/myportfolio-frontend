@@ -28,10 +28,10 @@ const Portfolio = () => {
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const responsedata = await sendRequest(
+        const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + "/api/portfolio"
         );
-        setLoadedWorks(responsedata.works);
+        setLoadedWorks(responseData.works);
       } catch (err) {
         console.log(err);
       }

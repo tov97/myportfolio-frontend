@@ -4,6 +4,7 @@ import vikingportrait from "../Assets/viking-portrait.png";
 import { useHistory } from "react-router-dom";
 import githubicon from "../Assets/githubicon.svg";
 import linkedin from "../Assets/linkedin.png";
+import StyledButton from "../Components/ui/StyledButton";
 /* TO-DO
 1. Set up API to get portrait image.
 2. Animation the placement of portrait and info.
@@ -138,35 +139,6 @@ const Text = styled.p`
   }
 `;
 
-const StyledButton = styled.button`
-  display: inline-block;
-  padding: 0.46em 1.6em;
-  border: 0.1em solid #000000;
-  margin: 0 0.2em 0.2em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Norsebold";
-  font-size: 22px;
-  font-weight: 300;
-  color: #000000;
-  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
-  background-color: transparent;
-  text-align: center;
-  transition: all 0.15s;
-  cursor: pointer;
-  &:hover {
-    background-color: goldenrod;
-    text-shadow: 0 0 2em rgba(255, 255, 255, 1);
-    color: #ffffff;
-    border-color: goldenrod;
-  }
-  @media (max-width: 535px) {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-`;
 const IconHoverAnimation = keyframes`
 0% {
         transform: translateY(0);
