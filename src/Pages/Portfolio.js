@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { PortfolioTile } from "../Components/layout/index";
 import { useHttpContact } from "../Components/hooks/contact-hook";
 import WorkView from "../Components/modals/work-view";
+import LoadingSpinner from "../Components/ui/LoadingSpinner";
 
 /* TO-DO
     Implement work view on portfolio page using grid animation
@@ -43,7 +44,7 @@ const Portfolio = () => {
     <Container>
       <Header> Works </Header>
       <Wrapper>
-        {loadedWorks &&
+        {loadedWorks ? (
           loadedWorks.map((work) => {
             return (
               <PortfolioTile
@@ -52,7 +53,10 @@ const Portfolio = () => {
                 showWork={WorkViewHandler}
               />
             );
-          })}
+          })
+        ) : (
+          <LoadingSpinner />
+        )}
       </Wrapper>
       {activeView && (
         <WorkView

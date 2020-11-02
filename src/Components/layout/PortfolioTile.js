@@ -69,7 +69,7 @@ const TextAnimation = keyframes`
         transform: translateY(-150%);
       }
       75%{
-          transform: translateY(15%);
+          transform: translateY(10%);
       }
         100% {
         transform: translateY(0);
@@ -100,7 +100,7 @@ const ButtonAnimation = keyframes`
         transform: translateY(175%);
       }
       75%{
-          transform: translateY(-10%);
+          transform: translateY(-5%);
       }
         100% {
         transform: translateY(0);
