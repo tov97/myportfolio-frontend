@@ -111,6 +111,10 @@ const FormCard = styled.div`
   padding: 1.5rem;
   overflow: hidden;
   background: white;
+  @media (max-width: 640px) {
+    width: 100%;
+    height: 80%;
+  }
 `;
 
 const StyledField = styled(Field)`

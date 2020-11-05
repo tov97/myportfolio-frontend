@@ -19,14 +19,14 @@ const About = () => {
       id: "s2",
       title: "Front End Development",
       desc:
-        "Proficiency building responsive, dynamic web apps with React JS (w/ Redux, styled-components, React bootstrap, and many other libraries). Excellent understanding of HTML, CSS, and Javascript.",
+        "Proficiency building responsive, dynamic web apps with React JS (w/ Redux, styled-components, React bootstrap, and many other libraries). Excellent understanding of HTML, CSS, and Javascript/Typescript.",
       image: frontend,
     },
     {
       id: "s3",
       title: "UI/UX Design",
       desc:
-        "Custom website design and prototyping using software such as Adobe XD and inVision App.",
+        "Custom website design and prototyping using software such as Adobe XD, Photoshop and inVision App.",
       image: design,
     },
     {

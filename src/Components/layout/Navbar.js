@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import testlogo from "../../Assets/testlogo.png";
+import tovslogo from "../../Assets/tovslogo.png";
 
 const Navbar = () => {
   const history = useHistory();
@@ -43,7 +44,7 @@ const Navbar = () => {
 
         {/* header image */}
         <HeaderImage
-          src={testlogo}
+          src={tovslogo}
           alt="header"
           onClick={() => history.push("/")}
         />
@@ -98,6 +99,7 @@ const Ul = styled.ul`
     top: 0;
     height: 100%;
     flex-direction: column;
+    align-items: center;
     background-color: #111111;
 
     /* animate drawer open/close */
