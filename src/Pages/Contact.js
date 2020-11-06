@@ -30,7 +30,7 @@ const Contact = () => {
           onSubmit={async (values, { setSubmitting, resetForm, setStatus }) => {
             try {
               setLoading(true);
-              const responseData = await sendRequest(
+              await sendRequest(
                 process.env.REACT_APP_BACKEND_URL + "/contact/send",
                 "POST",
                 JSON.stringify({

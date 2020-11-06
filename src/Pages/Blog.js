@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BlogPost } from "../Components/layout/index";
+// import { BlogPost } from "../Components/layout/index";
 
 /* TO-DO
 1. Set up API to get blog posts

@@ -5,7 +5,6 @@ import {
   useHistory,
 } from "react-router-dom";
 import styled from "styled-components";
-import testlogo from "../../Assets/testlogo.png";
 import tovslogo from "../../Assets/tovslogo.png";
 
 const Navbar = () => {
